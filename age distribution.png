@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load customer data
+df = pd.read_csv("customers.csv")
+
+# Create age distribution plot
+plt.figure(figsize=(10, 6))
+
+sns.histplot(
+    df["Age"],
+    bins=15,
+    kde=True,
+    color="skyblue"
+)
+
+plt.title("Age Distribution of Customers")
+plt.xlabel("Age")
+plt.ylabel("Number of Customers")
+
+plt.tight_layout()
+
+# Save the plot
+plt.savefig("age_distribution.png", dpi=300)
+
+plt.show()
